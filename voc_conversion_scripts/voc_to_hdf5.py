@@ -17,8 +17,8 @@ import h5py
 import numpy as np
 
 sets_from_2007 = [('2007', 'train'), ('2007', 'val')]
-train_set = [('2012', 'train')]
-val_set = [('2012', 'val')]
+train_set = [('2007', 'train')]
+val_set = [('2007', 'val')]
 test_set = [('2007', 'test')]
 
 classes = [
@@ -144,7 +144,7 @@ def _main(args):
 
     # Create HDF5 dataset structure
     print('Creating HDF5 dataset structure.')
-    fname = os.path.join(voc_path, 'pascal_voc_07_12.hdf5')
+    fname = os.path.join(voc_path, 'pascal_voc_07_07.hdf5')
     voc_h5file = h5py.File(fname, 'w')
     uint8_dt = h5py.special_dtype(
         vlen=np.dtype('uint8'))  # variable length uint8
@@ -177,16 +177,16 @@ def _main(args):
     print('Processing Pascal VOC 2007 datasets for training set.')
     last_2007 = add_to_dataset(voc_path, '2007', train_ids_2007, train_images,
                                train_boxes)
-    print('Processing Pascal VOC 2012 training set.')
-    add_to_dataset(
-        voc_path,
-        '2012',
-        train_ids,
-        train_images,
-        train_boxes,
-        start=last_2007 + 1)
-    print('Processing Pascal VOC 2012 val set.')
-    add_to_dataset(voc_path, '2012', val_ids, val_images, val_boxes)
+    # print('Processing Pascal VOC 2007 training set.')
+    # add_to_dataset(
+    #     voc_path,
+    #     '2007',
+    #     train_ids,
+    #     train_images,
+    #     train_boxes,
+    #     start=last_2007 + 1)
+    print('Processing Pascal VOC 2007 val set.')
+    add_to_dataset(voc_path, '2007', val_ids, val_images, val_boxes)
     print('Processing Pascal VOC 2007 test set.')
     add_to_dataset(voc_path, '2007', test_ids, test_images, test_boxes)
 

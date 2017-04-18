@@ -25,7 +25,7 @@ COCO_ANCHORS = np.array(
 
 
 def _main():
-    voc_path = os.path.expanduser('~/datasets/VOCdevkit/pascal_voc_07_12.hdf5')
+    voc_path = os.path.expanduser('/Users/ss/Data/VOCdevkit/pascal_voc_07_07.hdf5')
     classes_path = os.path.expanduser('model_data/pascal_classes.txt')
 
     with open(classes_path) as f:
@@ -114,6 +114,7 @@ def _main():
     #     loss = model.train_on_batch(
     #         [image_data, boxes, detectors_mask, matching_true_boxes],
     #         np.zeros(len(image_data)))
+
     model.fit([image_data, boxes, detectors_mask, matching_true_boxes],
               np.zeros(len(image_data)),
               batch_size=1,

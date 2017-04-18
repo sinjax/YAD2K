@@ -1,4 +1,5 @@
 # Ignore generated models, test images, and Darknet files.
+*.idea
 *.h5
 *.weights
 *.png
